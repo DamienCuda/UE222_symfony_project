@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         {#Le css Bootstrap est en dehors du bloc stylsheets pour qu'il ne soit pas écrasé par un éventuel appel au bloc sur une autre page#}
-        <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}" >
+        <link rel="stylesheet" href="{{asset('bootstrap.min.css', 'css')}}" >
         
         {% block stylesheets %}{% endblock %}
     </head>
@@ -22,7 +22,7 @@
 
         </div>
         {#Le script Bootstrap est en dehors du bloc javascript pour qu'il ne soit pas écrasé par un éventuel appel au bloc sur une autre page#}
-        <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{asset('bootstrap.bundle.min.js', 'js')}}"></script>
         {% block javascripts %}{% endblock %}
     </body>
 </html>
