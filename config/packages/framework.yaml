@@ -12,6 +12,7 @@ framework:
         cookie_samesite: lax
         storage_factory_id: session.storage.factory.native
 
+    # Ajout base_path pour fonction asset() twig
     assets:
         packages:
             css: 
