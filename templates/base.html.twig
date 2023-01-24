@@ -13,10 +13,13 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-        {# Include de la nav bar sur toute les pages#}
-        {% include "includes/navbar.html.twig" %}
+        {% block header %}
+            {# Include de la nav bar sur toute les pages#}
+            {% include "includes/navbar.html.twig" %}
+        {% endblock %}
 
-        <div class="container mt-5">
+
+        <div class="container m-5">
 
             {% block body %}{% endblock %}
 
