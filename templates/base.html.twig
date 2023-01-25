@@ -7,9 +7,10 @@
         {# Ajout de la balise Viewport #}
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        {#Le css Bootstrap est en dehors du bloc stylsheets pour qu'il ne soit pas écrasé par un éventuel appel au bloc sur une autre page#}
+        {#Le css Bootstrap et le style général sont en dehors du bloc stylesheets pour qu'ils ne soient pas écrasés par un éventuel appel au bloc sur une autre page#}
         <link rel="stylesheet" href="{{asset('bootstrap.min.css', 'css')}}" >
-        
+        <link rel="stylesheet" href="{{asset('style.css', 'css')}}" >
+
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
@@ -19,13 +20,14 @@
         {% endblock %}
 
 
-        <div class="container m-5">
+        <div class="container">
 
             {% block body %}{% endblock %}
 
         </div>
         {#Le script Bootstrap est en dehors du bloc javascript pour qu'il ne soit pas écrasé par un éventuel appel au bloc sur une autre page#}
         <script src="{{asset('bootstrap.bundle.min.js', 'js')}}"></script>
+        <script src="{{asset('script.js', 'js')}}"></script>
         {% block javascripts %}{% endblock %}
     </body>
 </html>
