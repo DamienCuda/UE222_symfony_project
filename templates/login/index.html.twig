@@ -5,24 +5,52 @@
 {% block header %}{% endblock %}
 
 {% block body %}
-
-<div class="row">
-    <form method="post" accept-charset="UTF-8" action="#">
-        <input type="hidden" name="action" value="users/login">
-    
-        <h3><label for="loginName">Username or email</label></h3>
-        <input id="loginName" type="text" name="loginName"
-            value="">
-    
-        <h3><label for="password">Password</label></h3>
-        <input id="password" type="password" name="password">
+    <div id="login_modal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Identifiants de connexion</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Login administrateur : Admin.</p>
+                <p>Mot de passe administrateur : Cvtic2022//.</p>
+                <p>Login utilisateur : User.</p>
+                <p>Mot de passe utilisateur : Cvtic2022//.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div id="login_header" class="text-center mb-5">
+        <h1>Bienvenue sur le blog du groupe 5</h1>
+        <p>Entrez votre mot nom d'utilisateur et votre mot de passe pour accéder aux articles</p>
         
-        <input type="submit" value="Login">
+    </div>
+    <div id="login_form">
+        <form method="post" accept-charset="UTF-8" action="#" class="row">
     
-        {% if errorMessage is defined %}
-            <p>{{ errorMessage }}</p>
-        {% endif %}
-    </form>
-</div>
+            <h2><label for="loginName">Nom d'utilisateur</label></h2>
+            <input id="loginName" type="text" name="loginName"  value="">
+        
+            <h2><label for="password">Mot de passe</label></h2>
+            <input id="password" type="password" name="password">
+            
+            <button class="btn btn-primary" id="login_btn" type="submit" value="Connexion">Connexion</button>
+        
+            {% if errorMessage is defined %}
+                <p>{{ errorMessage }}</p>
+            {% endif %}
+        </form>
+        
+    </div>
+    <div class="text-center mt-3">
+        <a href="#">
+            <p id="forgotten_password_btn" class="lead" data-bs-toggle="modal" data-bs-target="#login_modal">Pas d'identifiants ?</p>
+        </a>
+    </div>
+    
 
 {% endblock %}
