@@ -27,13 +27,13 @@
     </div>
 
     {# Section titrs #}
-    <section id="login_header" class="text-center mb-5">
+    <section id="login_header" class="text-center mb-5 mt-5">
         <h1>Bienvenue sur le blog du groupe 5</h1>
         <p>Entrez votre mot nom d'utilisateur et votre mot de passe pour accéder aux articles</p>
     </section>
+
     {# Formuliare de connexion #}
     <section id="login_form">
-
         <form method="post" accept-charset="UTF-8" action="#" class="row">
     
             <h2><label for="loginName">Nom d'utilisateur</label></h2>
@@ -48,14 +48,13 @@
                 <p>{{ errorMessage }}</p>
             {% endif %}
         </form>
-
-        {# Modal toggle #}
-        <div class="text-center mt-3">
-            <a href="#">
-                <p id="forgotten_password_btn" class="lead" data-bs-toggle="modal" data-bs-target="#login_modal">Pas d'identifiants ?</p>
-            </a>
-        </div>
-
     </section>
+    
+    {# Modal toggle #}
+    <div class="text-center mt-3">
+        <a href="#">
+            <p id="forgotten_password_btn" class="lead" data-bs-toggle="modal" data-bs-target="#login_modal">Pas d'identifiants ?</p>
+        </a>
+    </div>
 
 {% endblock %}
