@@ -5,6 +5,10 @@
 {% block body %}
     <h1 class="my-5">Liste des articles</h1>
 
+    {% if is_granted('ROLE_ADMIN') %}
+    <p>Vous êtes un admin</p>
+    {% endif %}
+    
     <table class="table table-striped">
         <thead class="thead-dark">
             <tr>

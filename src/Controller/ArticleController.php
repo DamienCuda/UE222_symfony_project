@@ -22,6 +22,14 @@ class ArticleController extends AbstractController
         ]);
     }
 
+    #[Route('/user', name: 'article_user', methods: ['GET'])]
+    public function user(ArticleRepository $articleRepository): Response
+    {
+        return $this->render('article/article_user.html.twig', [
+            'articles' => $articleRepository->findAll(),
+        ]);
+    }
+
     #[Route('/new', name: 'article_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
