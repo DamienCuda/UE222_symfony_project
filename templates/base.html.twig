@@ -9,6 +9,7 @@
 
         {#Le css Bootstrap et le style général sont en dehors du bloc stylesheets pour qu'ils ne soient pas écrasés par un éventuel appel au bloc sur une autre page#}
         <link rel="stylesheet" href="{{asset('bootstrap.min.css', 'css')}}" >
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="{{asset('style.css', 'css')}}" >
 
         {% block stylesheets %}{% endblock %}
