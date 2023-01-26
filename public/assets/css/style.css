@@ -32,3 +32,16 @@
     display: block;
     margin-top: 2rem;
 }
+.extrait{
+  width: 30vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: 1.5rem;
+}
+.published{
+  color: white;
+  padding: 0.4rem;
+  border-radius: 10px;
+  display: block;
+}
