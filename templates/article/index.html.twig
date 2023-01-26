@@ -3,12 +3,9 @@
 {% block title %}Article index{% endblock %}
 
 {% block body %}
-    <h1 class="my-5">Liste des articles</h1>
-
-    {% if is_granted('ROLE_ADMIN') %}
-    <p>Vous êtes un admin</p>
-    {% endif %}
-    
+    <div class="container mb-5">
+        <h1 class="my-5">Liste des articles</h1>
+        <a href="{{ path("article_user") }}"><button class="btn btn-primary">Afficher en tant qu'utilisateur</button></a>
     <table class="table table-striped">
         <thead class="thead-dark">
             <tr>
@@ -47,6 +44,9 @@
         {% endfor %}
         </tbody>
     </table>
+    <div class="d-flex justify-content-end">
+                {{ knp_pagination_render(articles) }}
+        </div>
     <div class="text-center">
         <a class="btn btn-primary" href="{{ path('article_new') }}">Ajouter un article</a>
     </div>
