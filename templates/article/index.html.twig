@@ -42,12 +42,12 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="12">Pas d'article trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
     <div class="text-center">
-        <a class="btn btn-primary" href="{{ path('article_new') }}">Create new</a>
+        <a class="btn btn-primary" href="{{ path('article_new') }}">Ajouter un article</a>
     </div>
 {% endblock %}
