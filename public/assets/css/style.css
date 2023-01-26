@@ -10,7 +10,6 @@
 #login_form{
     width : 45%;
     margin-inline: auto;
-    display: flex;
     padding: 1.5rem 2rem;
     border-radius: 10px;
     background-color: lightgrey;
@@ -31,6 +30,9 @@
 #login_btn{
     display: block;
     margin-top: 2rem;
+}
+#forgotten_password_btn{
+  padding-left: 1rem;
 }
 .extrait{
   width: 30vw;
