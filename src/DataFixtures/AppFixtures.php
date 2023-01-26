@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Article;
 use App\Entity\Category;
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -13,6 +14,25 @@ class AppFixtures extends Fixture
     {
         // $product = new Product();
         // $manager->persist($product);
+
+        $user = new User();
+        $user->setEmail("login@login.fr");
+        $user->setPassword("$2y$13$.7SnqTUYrt6Iod1LMLk4M.ELOE4dg9rOGHQQVfM6Cjz8YeqmpMYvq");
+        $user->setRoles([]);
+        $manager->persist($user);
+
+        $user = new User();
+        $user->setEmail("admin@admin.fr");
+        $user->setPassword("$2y$13$.7SnqTUYrt6Iod1LMLk4M.ELOE4dg9rOGHQQVfM6Cjz8YeqmpMYvq");
+        $user->setRoles(["ROLE_ADMIN", "ROLE_MODO"]);
+        $manager->persist($user);
+
+        $user = new User();
+        $user->setEmail("modo@modo.fr");
+        $user->setPassword("$2y$13$.7SnqTUYrt6Iod1LMLk4M.ELOE4dg9rOGHQQVfM6Cjz8YeqmpMYvq");
+        $user->setRoles(["ROLE_MODO"]);
+        $manager->persist($user);
+
         $categorie = new Category();
         $categorie->setName("Catégorie 1");
         $manager->persist($categorie);
