@@ -4,10 +4,6 @@
 
 {% block body %}
     <h1 class="my-5">Liste des articles</h1>
-
-    {% if is_granted('ROLE_ADMIN') %}
-    <p>Vous êtes un admin</p>
-    {% endif %}
     
     <table class="table table-striped">
         <thead class="thead-dark">
@@ -42,12 +38,12 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Aucun article</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
     <div class="text-center">
-        <a class="btn btn-primary" href="{{ path('article_new') }}">Create new</a>
+        <a class="btn btn-primary" href="{{ path('article_new') }}">Ajouter un article</a>
     </div>
 {% endblock %}
