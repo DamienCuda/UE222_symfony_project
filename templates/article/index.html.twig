@@ -5,6 +5,10 @@
 {% block body %}
     <h1>Article index</h1>
 
+    {% if is_granted('ROLE_ADMIN') %}
+    <p>Vous êtes un admin</p>
+    {% endif %}
+
     <table class="table">
         <thead>
             <tr>
