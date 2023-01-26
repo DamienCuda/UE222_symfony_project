@@ -31,6 +31,7 @@ class AppFixtures extends Fixture
         for ($i = 1; $i < 21; $i++){
 
             $num = rand(1,5);
+            $published_random = rand(0,1);
             $categorie = new Category();
             $categorie->setName("Catégorie $num");
             $manager->persist($categorie);
@@ -40,7 +41,7 @@ class AppFixtures extends Fixture
             $article->setContent("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut viverra urna in nunc dapibus tincidunt et eu magna. Pellentesque venenatis varius orci sit amet condimentum. Quisque sit amet enim id nisl consectetur gravida. Curabitur efficitur felis rutrum ligula convallis convallis. Vestibulum eget dictum lorem. Vestibulum est justo, fermentum eu eleifend vestibulum, lacinia efficitur erat. Proin a ligula lorem. In iaculis dignissim sodales.");
             $article->setCategory($categorie);
             $article->setImg("https://picsum.photos/300/300?random=$i");
-            $article->setPublished(0); 
+            $article->setPublished($published_random); 
             $article->setDatePublication("$i-07-2023");
             $manager->persist($article);
         }

@@ -10,16 +10,26 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
 
 #[Route('/article')]
 class ArticleController extends AbstractController
 {
     #[Route('/', name: 'article_index', methods: ['GET'])]
-    public function index(ArticleRepository $articleRepository): Response
+    public function index(ArticleRepository $articleRepository, PaginatorInterface $paginator, Request $request): Response
     {
+        // Sytème de pagination
+        $donnees = $this->getDoctrine()->getRepository(Article::class)->findBy([],['datePublication' => 'desc']);
+
+        $articles = $paginator->paginate(
+            $donnees, /* Les query */
+            $request->query->getInt('page', 1)/*numéro de la page par defaut dans l'url */,
+            10/* Maximum par page */
+        );
+
         if ($this->container->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
             return $this->render('article/index.html.twig', [
-                'articles' => $articleRepository->findAll(),
+                'articles' => $articles,
             ]);
         }else{
             return $this->redirectToRoute('article_user');
@@ -27,10 +37,20 @@ class ArticleController extends AbstractController
     }
 
     #[Route('/user', name: 'article_user', methods: ['GET'])]
-    public function user(ArticleRepository $articleRepository): Response
+    public function user(ArticleRepository $articleRepository, PaginatorInterface $paginator, Request $request): Response
     {
+
+        // Sytème de pagination
+        $donnees = $this->getDoctrine()->getRepository(Article::class)->findBy([],['datePublication' => 'desc']);
+
+        $articles = $paginator->paginate(
+            $donnees, /* Les query */
+            $request->query->getInt('page', 1)/*numéro de la page par defaut dans l'url */,
+            8/* Maximum par page */
+        );
+
         return $this->render('article/article_user.html.twig', [
-            'articles' => $articleRepository->findAll(),
+            'articles' => $articles,
         ]);
     }
 
