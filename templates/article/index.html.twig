@@ -31,7 +31,7 @@
                 </td>
                 <td class="text-center">{{ article.datePublication }}</td>
                 <td class="text-center"><span class="published {{ article.published ? "bg-primary" : "bg-danger"}}">{{ article.published ? "oui" : "non"}}</span></td>
-                <td class="text-center"><p class="extrait">{{ article.content }}</p></td>
+                <td class="text-center"><p class="extrait">{{ article.content|slice(0, 80) }}...</p></td>
                 <td class="text-center">
                     <a class="action_btn" href="{{ path('article_show', {'id': article.id}) }}"><i class='bx bx-show-alt'></i></a>
                     <a class="action_btn" href="{{ path('article_edit', {'id': article.id}) }}"><i class='bx bxs-pencil'></i></a>
