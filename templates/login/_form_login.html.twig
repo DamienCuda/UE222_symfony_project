@@ -1,0 +1,17 @@
+<section id="login_form">
+    <form method="post" accept-charset="UTF-8" action="{{path('app_login_check')}}" class="row">
+
+        <h2><label for="loginName">Nom d'utilisateur</label></h2>
+        <input id="loginName" type="text" name="loginName"  value="" placeholder="Votre nom d'utilisateur" required>
+    
+        <h2><label for="password" >Mot de passe</label></h2>
+        <input id="password" type="password" name="password" placeholder="Votre mot de passe" required>
+        
+        <button class="btn btn-primary" id="login_btn" type="submit" value="Connexion">Connexion</button>
+    
+        {% if errorMessage is defined %}
+            <p>{{ errorMessage }}</p>
+        {% endif %}
+    </form>
+</section>
+    
