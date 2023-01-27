@@ -14,6 +14,7 @@
     border-radius: 10px;
     background-color: lightgrey;
 }
+
 #login_form h2:after{
   content: '*';
   color: red;
@@ -21,26 +22,24 @@
   font-size: 1.5rem;
   padding-left: 0.2em;
 }
+
 #login_form input{
   padding-block: 0.2rem;
 }
+
 #login_form input::placeholder{
   font-style: italic;
 }
+
 #login_btn{
     display: block;
     margin-top: 2rem;
 }
+
 #forgotten_password_btn{
   padding-left: 1rem;
 }
-.extrait{
-  width: 30vw;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-left: 1.5rem;
-}
+
 .published{
   color: white;
   padding: 0.4rem;
