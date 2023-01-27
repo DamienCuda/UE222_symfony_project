@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Bienvenue{% endblock %}</title>
         {# Ajout de la balise Viewport #}
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -20,12 +20,8 @@
             {% include "includes/navbar.html.twig" %}
         {% endblock %}
 
+        {% block body %}{% endblock %}
 
-        <div class="container">
-
-            {% block body %}{% endblock %}
-
-        </div>
         {#Le script Bootstrap est en dehors du bloc javascript pour qu'il ne soit pas écrasé par un éventuel appel au bloc sur une autre page#}
         <script src="{{asset('bootstrap.bundle.min.js', 'js')}}"></script>
         <script src="{{asset('script.js', 'js')}}"></script>

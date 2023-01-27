@@ -3,9 +3,12 @@
 {% block title %}Nouvel article{% endblock %}
 
 {% block body %}
-    <h1>Créer un nouvel article</h1>
-
-    {{ include('article/_form.html.twig') }}
-
-    <a href="{{ path('article_index') }}">Retour</a>
+    {{parent()}}
+    <main class="container">
+        <h1>Créer un nouvel article</h1>
+        <section class="row">
+            {{ include('article/_form.html.twig') }}
+        </section>
+        <a href="{{ path('article_index') }}">Retour</a>
+    </main>
 {% endblock %}

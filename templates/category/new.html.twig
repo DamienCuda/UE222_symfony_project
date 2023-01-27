@@ -3,9 +3,10 @@
 {% block title %}Nouvelle Categorie{% endblock %}
 
 {% block body %}
-    <h1>Créer ne catégorie</h1>
-
-    {{ include('category/_form.html.twig') }}
-
-    <a href="{{ path('category_index') }}">Retour</a>
+    {{parent()}}
+    <main class="container">
+        <h1>Créer ne catégorie</h1>
+        {{ include('category/_form.html.twig') }}
+        <a href="{{ path('category_index') }}">Retour</a>
+    </main>
 {% endblock %}
