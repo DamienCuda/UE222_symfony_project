@@ -92,7 +92,6 @@ h1 {
 
 form[name="category"] input {
     border: none;
-    background: lightgrey;
     border-bottom: 2px solid red;
 }
 
@@ -102,19 +101,16 @@ form[name="category"] button {
 
 form[name="article"] input {
     border: none;
-    background: lightgrey;
     border-bottom: 2px solid red;
 }
 
 form[name="article"] textarea {
     border: none;
-    background: lightgrey;
     border-bottom: 2px solid red;
 }
 
 form[name="article"] select {
     border: none;
-    background: lightgrey;
     border-bottom: 2px solid red;
 }
 
