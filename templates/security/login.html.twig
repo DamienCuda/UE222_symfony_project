@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login{% endblock %}
+
+{% block header %}{% endblock %}
+
+
+{% block body %}
+    {{parent()}}
+    {# Modal d'identifiants #}
+    {{ include('security/_modal_login.html.twig') }}
+
+    <main class="container">
+        {# Titre connexion #}
+        {{ include('includes/login_title.html.twig') }}
+
+        {# Formulaire de connexion #}
+        {{ include('security/_form_login.html.twig') }}
+        
+
+        {# Modal toggle #}
+        <div class="mt-3 d-flex justify-content-center">
+            <a class="lead" href="{{path('app_register')}}"><p class="lead pr-3">Inscrivez-vous<p></a>
+            <a href="#"><p id="forgotten_password_btn" class="lead" data-bs-toggle="modal" data-bs-target="#login_modal">Besoin d'identifiants ?</p></a>
+        </div>
+    </main>
+{% endblock %}

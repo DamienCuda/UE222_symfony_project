@@ -7,28 +7,56 @@
   box-sizing: border-box;
 }
 
-#login_form{
+.login_form{
     width : 45%;
     margin-inline: auto;
-    display: flex;
     padding: 1.5rem 2rem;
     border-radius: 10px;
     background-color: lightgrey;
 }
-#login_form h2:after{
+
+#login_form h2:after, form[name="registration_form"] div:not(:last-of-type) label:after{
   content: '*';
   color: red;
   display: inline-block;
   font-size: 1.5rem;
   padding-left: 0.2em;
 }
-#login_form input{
+
+#login_form input, form[name="registration_form"] div input{
   padding-block: 0.2rem;
 }
+
 #login_form input::placeholder{
   font-style: italic;
 }
+
 #login_btn{
     display: block;
     margin-top: 2rem;
+}
+
+form[name="registration_form"] div:not(:last-of-type){
+  display: flex;
+  flex-direction: column;
+}
+form[name="registration_form"] div label{
+  font-weight: 500;
+  font-size: 1.4rem;
+  padding-block: 0.3rem;
+}
+form[name="registration_form"] div input{
+  border-radius: 8px;
+  border: none;
+}
+
+#forgotten_password_btn{
+  padding-left: 1rem;
+}
+
+.published{
+  color: white;
+  padding: 0.4rem;
+  border-radius: 10px;
+  display: block;
 }

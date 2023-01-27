@@ -1,22 +1,35 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav m-auto fs-5">
-        <li class="nav-item">
-          <a class="nav-link {% if route_name == 'article_index' %} active {% endif %}" href={{path('article_index')}}>Articles</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {% if route_name == 'article_new' %} active {% endif %}" href={{path('article_new')}}>Ajout article</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {% if route_name == 'category_index' %} active {% endif %}" href={{path('category_index')}}>Catégories</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {% if route_name == 'category_new' %} active {% endif %}" href={{path('category_new')}}>Ajout catégorie</a>
-        </li>
-      </ul>
-    </div>
-</nav>
+{# NavBar Bootstrap5 #}
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav m-auto fs-5">
+          {# Adaptation de la Navbar en fonction de l'utilisateur #}
+          {% if is_granted('ROLE_ADMIN') %}
+          <li class="nav-item">
+            <a class="nav-link {% if route_name == 'article_index' %}active {% endif %}" href={{path('article_index')}}>Articles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if route_name == 'article_new' %} active {% endif %}" href={{path('article_new')}}>Article +</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if route_name == 'category_index' %}active {% endif %}" href={{path('category_index')}}>Catégories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if route_name == 'category_new' %} active {% endif %}" href={{path('category_new')}}>Catégorie +</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link {% if route_name == 'article_user' %}active {% endif %}" href={{path('article_user')}}>Articles</a>
+          </li>
+          {% endif %}
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center justify-content-between link-danger {% if route_name == 'app_logout' %}active {% endif %}" href={{path('app_logout')}}><span>Déconnexion</span><i class='bx bx-log-out'></i></a>
+          </li>
+        </ul>
+      </div>
+  </nav>
+</header>
 {# Le système des classes active est inspiré de cette page https://dthlabs.com/set-a-bootstrap-menu-item-as-active-in-symfony-5/ #}
