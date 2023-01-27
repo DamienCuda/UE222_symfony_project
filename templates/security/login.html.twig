@@ -9,13 +9,10 @@
     {{parent()}}
     {# Modal d'identifiants #}
     {{ include('security/_modal_login.html.twig') }}
-    
+
     <main class="container">
-        {# Section titres #}
-        <section id="login_header" class="text-center mb-5 mt-5">
-            <h1>Bienvenue sur le blog du groupe 5</h1>
-            <p>Entrez votre mot nom d'utilisateur et votre mot de passe pour accéder aux articles</p>
-        </section>
+        {# Titre connexion #}
+        {{ include('includes/login_title.html.twig') }}
 
         {# Formulaire de connexion #}
         {{ include('security/_form_login.html.twig') }}
