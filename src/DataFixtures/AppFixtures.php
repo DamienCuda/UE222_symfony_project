@@ -15,6 +15,7 @@ class AppFixtures extends Fixture
         // $product = new Product();
         // $manager->persist($product);
 
+        // Définition de 2 utilisateur par défaut
         $user = new User();
         $user->setEmail("login@login.fr");
         $user->setPassword("$2y$13$.7SnqTUYrt6Iod1LMLk4M.ELOE4dg9rOGHQQVfM6Cjz8YeqmpMYvq");
@@ -28,6 +29,7 @@ class AppFixtures extends Fixture
         $manager->persist($user);
 
 
+        // Boucle de création de 20 articles avec choix de la catégorie en random, l'img est un line vers le site Lorem Picsum
         for ($i = 1; $i < 21; $i++){
 
             $num = rand(1,5);
@@ -45,7 +47,6 @@ class AppFixtures extends Fixture
             $article->setDatePublication("$i-07-2023");
             $manager->persist($article);
         }
-
 
         $manager->flush();
     }

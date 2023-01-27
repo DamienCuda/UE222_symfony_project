@@ -3,14 +3,17 @@
 {% block title %}Article index{% endblock %}
 
 {% block body %}
-    <div class="container mb-5"> 
-        <h1>Liste des articles</h1>
+    {{parent()}}
+    <main class="container mb-5"> 
+        <h1 class="my-4">Liste des articles</h1>
+        
+        {# Bouton permettant de passer de la vue administrateur à la vue utilisateur #}
         {% if is_granted('ROLE_ADMIN') %}
         <a href="{{ path('article_index') }}"><button class="btn btn-primary">Afficher en tant qu'administrateur</button></a>
         {% endif %}
         <div class="d-flex flex-wrap">
             {% for article in articles %}
-            <div class="col-12 col-sm-12 col-md-3 col-xl-3 mt-3">
+            <article class="col-12 col-sm-12 col-md-3 col-xl-3 mt-3">
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="{{ article.img }}" alt="Card image cap">
                     <div class="card-body">
@@ -20,15 +23,16 @@
                         <a href="{{ path('article_show', {'id': article.id}) }}" class="btn btn-primary d-flex justify-content-center">En savoir plus</a>
                     </div>
                 </div>
-            </div>
+            </article>
             {% else %}
                     <tr>
-                        <td colspan="4">Aucun article</td>
+                        <td colspan="12">Aucun article</td>
                     </tr>
             {% endfor %}
         </div>
+        {# System de pagination #}
         <div class="d-flex justify-content-end">
             {{ knp_pagination_render(articles) }}
         </div>
-    </div>
+    </main>
 {% endblock %}
