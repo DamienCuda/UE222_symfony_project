@@ -32,8 +32,9 @@
     
     <a href="{{ path('article_index') }}">back to list</a>
 
+    {# Les boutons d'édition et de suppression ne sont visible que par les adminstrateurs #}
     {% if is_granted('ROLE_ADMIN') %}
-    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
+    <a href="{{ path('article_edit', {'id': article.id}) }}">Modifier</a>
     {{ include('article/_delete_form.html.twig') }}
     {% endif %}
     

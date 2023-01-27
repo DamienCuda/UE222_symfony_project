@@ -15,6 +15,7 @@ use Knp\Component\Pager\PaginatorInterface;
 #[Route('/article')]
 class ArticleController extends AbstractController
 {
+    // Route vers la liste d'article admin
     #[Route('/', name: 'article_index', methods: ['GET'])]
     public function index(ArticleRepository $articleRepository, PaginatorInterface $paginator, Request $request): Response
     {
@@ -27,6 +28,7 @@ class ArticleController extends AbstractController
             10/* Maximum par page */
         );
 
+        // On redirige en fonction du rôle de la personne connectée
         if ($this->container->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
             return $this->render('article/index.html.twig', [
                 'articles' => $articles,
@@ -36,6 +38,7 @@ class ArticleController extends AbstractController
         }
     }
 
+    // Route vers la liste d'article utilisateur
     #[Route('/user', name: 'article_user', methods: ['GET'])]
     public function user(ArticleRepository $articleRepository, PaginatorInterface $paginator, Request $request): Response
     {
@@ -54,6 +57,7 @@ class ArticleController extends AbstractController
         ]);
     }
 
+    // Route vers l'ajout d'article
     #[Route('/new', name: 'article_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -80,6 +84,7 @@ class ArticleController extends AbstractController
         }
     }
 
+    // Route vers un article selon son ID
     #[Route('/{id}', name: 'article_show', methods: ['GET'])]
     public function show(Article $article): Response
     {
@@ -88,6 +93,7 @@ class ArticleController extends AbstractController
         ]);
     }
 
+    // Route vers l'édition d'un article selon son ID
     #[Route('/{id}/edit', name: 'article_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Article $article, EntityManagerInterface $entityManager): Response
     {
@@ -110,6 +116,7 @@ class ArticleController extends AbstractController
         }
     }
 
+    // Route vers la suppression article selon son ID
     #[Route('/{id}', name: 'article_delete', methods: ['POST'])]
     public function delete(Request $request, Article $article, EntityManagerInterface $entityManager): Response
     {
