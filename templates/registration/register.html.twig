@@ -7,16 +7,22 @@
 {% block body %}
     {{parent()}}
     <main class="container">
-        <h1 class="py-3">Inscription</h1>
-        <section class="row">
-            {{ form_start(registrationForm) }}
-                {{ form_row(registrationForm.email) }}
-                {{ form_row(registrationForm.plainPassword, {
-                    label: 'Password'
-                }) }}
-                {{ form_row(registrationForm.agreeTerms) }}
-                <button type="submit" class="btn">S'inscrire</button>
-            {{ form_end(registrationForm) }}
+        
+        {# Titre connexion #}
+        {{ include('includes/login_title.html.twig') }}
+        
+        <section class="login_form">
+            <h1 class="h3 mb-3 font-weight-normal">Inscription</h1>
+            <div class="row">
+                {{ form_start(registrationForm) }}
+                    {{ form_row(registrationForm.email) }}
+                    {{ form_row(registrationForm.plainPassword, {
+                        label: 'Password'
+                    }) }}
+                    {{ form_row(registrationForm.agreeTerms) }}
+                    <button type="submit" class="btn btn-lg btn-primary mt-3">S'inscrire</button>
+                {{ form_end(registrationForm) }}
+            </div>
         </section>
     </main>
 {% endblock %}
