@@ -5,8 +5,8 @@
 {% block body %}
     {{parent()}}
     <main class="container">
-        <h1>Créer une catégorie</h1>
+        <h1 class="d-flex align-items-center justify-content-center mt-2 mb-2"><i class='bx bx-folder-plus'></i> Créer une catégorie</h1>
         {{ include('category/_form.html.twig') }}
-        <a href="{{ path('category_index') }}" class="btn btn-primary d-flex justify-content-between align-items-center"><i class='bx bx-left-arrow-alt'></i><span>Retour</span></a>
+        <a href="{{ path('category_index') }}"><button class="btn btn-primary d-flex justify-content-between align-items-center mt-2"><i class='bx bx-left-arrow-alt'></i><span>Retour</span></button></a>
     </main>
 {% endblock %}

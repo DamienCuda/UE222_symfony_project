@@ -5,11 +5,11 @@
 {% block body %}
     {{parent()}}
     <main class="container">
-        <h1>Modifier un Article</h1>
+        <h1 class="my-4"><i class='bx bx-edit-alt'></i> Modifier un Article</h1>
 
-        {{ include('article/_form.html.twig', {'button_label': 'Enregistrer'}) }}
+        {{ include('article/_form.html.twig', {'button_label': 'Modifier'}) }}
         <div class="delete_edit">
-        <a href="{{ path('article_index') }}" class="btn btn-primary d-flex justify-content-between align-items-center"><i class='bx bx-left-arrow-alt'></i><span>Retour</span></a>
+        <a href="{{ path('article_index') }}"><button class="btn btn-primary d-flex justify-content-between align-items-center mt-2"><i class='bx bx-left-arrow-alt'></i><span>Retour</span></button></a>
         {{ include('article/_delete_form.html.twig') }}
         </div>
     </main>
