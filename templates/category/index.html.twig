@@ -5,7 +5,7 @@
 {% block body %}
     {{parent()}}
     <main class="container">
-        <h1>Liste des Categories</h1>
+        <h1 class="my-4 d-flex justify-content-center align-items-center"><i class='bx bx-list-ul' ></i> Liste des Categories</h1>
         <table class="table">
             <thead>
                 <tr>
@@ -20,8 +20,8 @@
                     <td>{{ category.id }}</td>
                     <td>{{ category.name }}</td>
                     <td>
-                        <a href="{{ path('category_show', {'id': category.id}) }}">Voir</a>
-                        <a href="{{ path('category_edit', {'id': category.id}) }}">Modifier</a>
+                        <a href="{{ path('category_show', {'id': category.id}) }}"><i class='bx bx-show-alt'></i></a>
+                        <a href="{{ path('category_edit', {'id': category.id}) }}"><i class='bx bxs-pencil'></i></a>
                     </td>
                 </tr>
             {% else %}
@@ -31,6 +31,10 @@
             {% endfor %}
             </tbody>
         </table>
-        <a href="{{ path('category_new') }}">Créer une catégorie</a>
+        <a href="{{ path('category_new') }}"><button class="btn btn-primary">Créer une catégorie</button></a>
+        {# System de pagination #}
+        <div class="d-flex justify-content-end">
+            {{ knp_pagination_render(categories) }}
+        </div>
     </main>
 {% endblock %}

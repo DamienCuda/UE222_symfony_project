@@ -5,10 +5,10 @@
 {% block body %}
     {{parent()}}
     <main class="container">
-        <h1>Créer un nouvel article</h1>
+        <h1 class="d-flex align-items-center justify-content-center mt-2 mb-2"><i class='bx bxs-file-plus'></i><span>Créer un nouvel article</span></h1>
         <section class="row">
             {{ include('article/_form.html.twig') }}
         </section>
-        <a href="{{ path('article_index') }}" class="btn btn-primary d-flex justify-content-between align-items-center"><i class='bx bx-left-arrow-alt'></i><span>Retour</span></a>
+        <a href="{{ path('article_index') }}"><button class="btn btn-primary d-flex justify-content-between align-items-center mt-2"><i class='bx bx-left-arrow-alt'></i><span>Retour</span></button></a>
     </main>
 {% endblock %}

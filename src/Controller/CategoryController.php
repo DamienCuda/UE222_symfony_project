@@ -10,17 +10,28 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
 
 #[Route('/category')]
 class CategoryController extends AbstractController
 {
     // Route vers les catégories
     #[Route('/', name: 'category_index', methods: ['GET'])]
-    public function index(CategoryRepository $categoryRepository): Response
+    public function index(CategoryRepository $categoryRepository, PaginatorInterface $paginator, Request $request): Response
     {
         if ($this->container->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+
+            // Sytème de pagination
+            $donnees = $this->getDoctrine()->getRepository(Category::class)->findBy([],[]);
+
+            $category = $paginator->paginate(
+                $donnees, /* Les query */
+                $request->query->getInt('page', 1)/*numéro de la page par defaut dans l'url */,
+                8/* Maximum par page */
+            );
+
             return $this->render('category/index.html.twig', [
-                'categories' => $categoryRepository->findAll(),
+                'categories' => $category,
             ]);
         }else{
             return $this->redirectToRoute('article_user');
